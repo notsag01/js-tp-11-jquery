@@ -3,3 +3,12 @@
     padding: 1rem;
     margin: .5rem;
 }
+.style-precio{
+    color: red;
+    font-weight: bolder;
+}
+
+.spam-cantidad{
+    font-size: 1.2em;
+    margin-left: 1.5rem;
+}

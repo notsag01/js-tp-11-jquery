@@ -1,11 +1,11 @@
 const productosALaVenta=[]
 
 class Productos{
-    constructor(id, nombre, precio, cantidad){
+    constructor(id, nombre, precio, stock){
         this.id=id; 
         this.nombre=nombre.toUpperCase();
         this.precio=Number(precio);
-        this.cantidad=Number(cantidad)
+        this.stock=Number(stock)
     }
 }
 
