@@ -7,13 +7,13 @@ class Carrito{
     }
 }
 
-const carrito =JSON.stringify(localStorage.getItem("carrito"))||[]
+const carrito =JSON.parse(localStorage.getItem("carrito"))||[]
 
 
 
 for (const producto of productosALaVenta){
 
-    let cantidad=0; 
+    let cantidad=1; 
 
     $(`#productos-a-la-venta`).append(
     
@@ -33,7 +33,7 @@ for (const producto of productosALaVenta){
         `        
     )
     $(`#contador-${producto.id}`).change((event)=>{
-        cantidad= event.target.value
+        cantidad=   +event.target.value
         //console.log(cantidad)
     })
     
@@ -42,14 +42,29 @@ for (const producto of productosALaVenta){
        //console.log(producto)
         
         const itemCarrito = new Carrito (producto.nombre, cantidad)
+        addItemCarrito(itemCarrito)
 
-        console.log(itemCarrito)
+        //console.log(itemCarrito)
 
     })
 
 }
 
+const addItemCarrito=(item)=>{
+    
 
+
+    
+    carrito.push(item)
+    console.log(item)
+    console.log(carrito)
+    localStorage.setItem("carrito", JSON.stringify(carrito))
+    renderizarCarrito()
+}
+
+const renderizarCarrito=()=>{
+
+}
 
 
 
