@@ -7,7 +7,7 @@ class Carrito{
     }
 }
 
-const carrito =JSON.parse(localStorage.getItem("carrito"))||[]
+const carrito =/* JSON.parse(localStorage.getItem("carrito"))|| */[]
 
 
 
@@ -51,24 +51,20 @@ for (const producto of productosALaVenta){
 }
 
 const addItemCarrito=(item)=>{
-    
-    const itemCarrito= carrito.find(
-        el=>el.item===item[`item`]
-    )
-    if(!itemCarrito){
         carrito.push(item)
         console.log(carrito)
-    }else{
-        itemCarrito[`cantidad`]=item.cantidad
-        console.log(carrito)
-    }
 
-    localStorage.setItem("carrito", JSON.stringify(carrito))
+    /* localStorage.setItem("carrito", JSON.stringify(carrito)) */
     renderizarCarrito()
 }
 
-const renderizarCarrito=()=>{
+const renderizarCarrito=(producto)=>{
 
+    for(const producto of carrito){
+    $("#carrito-de-compras").append(
+                           `<h2>${producto.nombre}</h2>`
+    )
+    }
 }
 
 
