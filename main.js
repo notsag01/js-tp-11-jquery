@@ -52,12 +52,17 @@ for (const producto of productosALaVenta){
 
 const addItemCarrito=(item)=>{
     
+    const itemCarrito= carrito.find(
+        el=>el.item===item[`item`]
+    )
+    if(!itemCarrito){
+        carrito.push(item)
+        console.log(carrito)
+    }else{
+        itemCarrito[`cantidad`]=item.cantidad
+        console.log(carrito)
+    }
 
-
-    
-    carrito.push(item)
-    console.log(item)
-    console.log(carrito)
     localStorage.setItem("carrito", JSON.stringify(carrito))
     renderizarCarrito()
 }
