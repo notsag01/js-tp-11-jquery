@@ -5,15 +5,13 @@ $("#carrito-de-compras").append(
     `<h1 id="titulo-carrito"> CARRITO DE COMPRAS </h1>`
 )
 
+for(const producto of carrito){
+    $(`#contenedor-carrito`).append(
+        `<p>${producto.nombre}</p>`
+    )
+}
 
-
-    for(let producto of carrito){
-        $("#contenedor-carrito").append(
-            `<h1> ${producto.nombre} </h1>
-            
-            `
-            )
-        }
+    
 
     
 
