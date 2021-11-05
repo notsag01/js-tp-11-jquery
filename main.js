@@ -1,13 +1,13 @@
 import{ productosALaVenta} from "./productos.js"
 
 class Carrito{
-    constructor(producto, cantidad){
-        this.producto=producto;
+    constructor(nombre, cantidad){
+        this.nombre=nombre;
         this.cantidad=cantidad;
     }
 }
 
-const carrito =/* JSON.parse(localStorage.getItem("carrito"))|| */[]
+const carrito =[]||JSON.parse(localStorage.getItem(`carrito`))
 
 
 
@@ -41,34 +41,17 @@ for (const producto of productosALaVenta){
     $(`#boton-comprar-${producto.id}`).click(()=>{
        //console.log(producto)
         
-        const itemCarrito = new Carrito (producto.nombre, cantidad)
-        addItemCarrito(itemCarrito)
-
-        //console.log(itemCarrito)
-
+        carrito.push(new Carrito (producto.nombre, cantidad))
+        localStorage.setItem("carrito",JSON.stringify(carrito))
+        console.log(carrito)       
     })
-
 }
 
-const addItemCarrito=(item)=>{
-        carrito.push(item)
-        console.log(carrito)
-
-    /* localStorage.setItem("carrito", JSON.stringify(carrito)) */
-    renderizarCarrito()
+export{
+    carrito
 }
-
-const renderizarCarrito=(producto)=>{
-
-    for(const producto of carrito){
-    $("#carrito-de-compras").append(
-                           `<h2>${producto.nombre}</h2>`
-    )
-    }
-}
-
-
-
+    
+ 
 
 
 
