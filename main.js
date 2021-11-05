@@ -44,6 +44,7 @@ for (const producto of productosALaVenta){
         carrito.push(new Carrito (producto.nombre, cantidad))
         localStorage.setItem("carrito",JSON.stringify(carrito))
         console.log(carrito)       
+        
     })
 }
 
